@@ -17,7 +17,13 @@ def main():
     print(f"Task Parameters are: {execution.parameters}")
 
     # Create a BotHttpPlugin instance
-    base_url = "https://reqres.in/"
+    base_url = "https://reqres.in/api"
+
+    # Create routes to fetch users
+    http = BotHttpPlugin(base_url + "/users?page=2")
+
+    # Get the response
+    print(http.get().text)
 
     # Implement here your logic...
     ...
