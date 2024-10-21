@@ -25,8 +25,28 @@ def main():
     # Get the response
     print(http.get().text)
 
-    # Implement here your logic...
-    ...
+    # Login
+    http = BotHttpPlugin(base_url + "/login")
+    params = {
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+    }
+
+    # Set the parameters
+    http.set_params(params)
+    print(http.post().text)
+
+
+    # Register (DESAFIO)
+    http = BotHttpPlugin(base_url + "/register")
+    params = {
+    "email": "eve.holt@reqres.in",
+    "password": "pistol"
+    }
+    http.set_params(params)
+    print(http.post().text)
+
+
 
     # Uncomment to mark this task as finished on BotMaestro
     # maestro.finish_task(
