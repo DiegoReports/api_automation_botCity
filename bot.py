@@ -23,7 +23,8 @@ def main():
     http = BotHttpPlugin(base_url + "/users?page=2")
 
     # Get the response
-    print(http.get().text)
+    print(http.get().json()['total'])
+    print(http.get().json()['data'][0]['email'])
 
     # Login
     http = BotHttpPlugin(base_url + "/login")
@@ -44,7 +45,9 @@ def main():
     "password": "pistol"
     }
     http.set_params(params)
-    print(http.post().text)
+
+    # Capture key 'token'
+    print(http.post().json()['token'])
 
 
 
